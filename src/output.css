@@ -19,6 +19,8 @@
     --container-md: 28rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-semibold: 600;
@@ -201,6 +203,9 @@
   .left-7 {
     left: calc(var(--spacing) * 7);
   }
+  .left-10 {
+    left: calc(var(--spacing) * 10);
+  }
   .z-10 {
     z-index: 10;
   }
@@ -237,6 +242,9 @@
   .h-screen {
     height: 100vh;
   }
+  .max-h-\[300px\] {
+    max-height: 300px;
+  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -264,8 +272,22 @@
   .w-screen {
     width: 100vw;
   }
+  .max-w-\[300px\] {
+    max-width: 300px;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .translate-x-20 {
     --tw-translate-x: calc(var(--spacing) * 20);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-x-32 {
+    --tw-translate-x: calc(var(--spacing) * 32);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-y-1 {
+    --tw-translate-y: calc(var(--spacing) * 1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .translate-y-1\/2 {
@@ -277,6 +299,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -296,14 +321,44 @@
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .bg-\[url\(\.\/image\)\] {
+    background-image: url(./image);
+  }
+  .bg-\[url\(\.\/images\/\)\] {
+    background-image: url(./images/);
+  }
+  .bg-\[url\(\.\/images\/pattern-quotes\.svg\)\] {
+    background-image: url(./images/pattern-quotes.svg);
+  }
+  .bg-left {
+    background-position: left;
+  }
+  .bg-top {
+    background-position: top;
+  }
+  .bg-no-repeat {
+    background-repeat: no-repeat;
   }
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
   .px-\[6\%\] {
     padding-inline: 6%;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
@@ -314,6 +369,9 @@
   }
   .text-Gray {
     color: var(--color-Gray);
+  }
+  .underline {
+    text-decoration-line: underline;
   }
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
@@ -328,6 +386,11 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
+  }
+  .max-\[750px\]\:left-1\/2 {
+    @media (width < 750px) {
+      left: calc(1/2 * 100%);
+    }
   }
   .max-\[750px\]\:my-10 {
     @media (width < 750px) {
@@ -352,6 +415,12 @@
   .max-\[750px\]\:w-\[320px\] {
     @media (width < 750px) {
       width: 320px;
+    }
+  }
+  .max-\[750px\]\:translate-x-1\/2 {
+    @media (width < 750px) {
+      --tw-translate-x: calc(1/2 * 100%);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
   .max-\[750px\]\:translate-none {
@@ -419,6 +488,11 @@
 @property --tw-skew-y {
   syntax: "*";
   inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-font-weight {
   syntax: "*";
@@ -505,6 +579,7 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
